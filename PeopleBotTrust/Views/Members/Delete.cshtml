@@ -1,0 +1,69 @@
+﻿@model PeopleBotTrust.Models.MemberModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h3 class="panel-title">Delete Member</h3>
+        <div class="panel-tool"><a class="btn btn-info btn-xs" href="/employee">Back to List</a></div>
+    </div>
+    <div class="panel-body">
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MyPhone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MyPhone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FullName)
+                </dd>
+
+            </dl>
+        <div class="panel-footer">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <button type="submit" value="" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>&nbsp; Confirm</button>
+                    <a class="btn btn-warning btn-xs" href="/employee">Cancel</a>
+                </div>
+            }
+        </div>
+    </div>

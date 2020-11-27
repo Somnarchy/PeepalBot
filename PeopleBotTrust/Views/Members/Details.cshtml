@@ -1,0 +1,70 @@
+﻿@model PeopleBotTrust.Models.MemberModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel panel-heading">
+        <h3 class="panel-title">Member Details</h3>
+        <div class="panel-tool">
+            <a class="btn btn-info btn-xs" href="/Members/edit/@Model.Id">Edit</a>
+            <a class="btn btn-info btn-xs" href="/Members/">List</a>
+        </div>
+
+    </div>
+     <div class="panel-body">
+         <div class="panel panel-collapse">
+             <dl class="dl-horizontal">
+                 <dt>
+                     <span>First Name</span>:<span></span><br />
+                     @*@Html.DisplayNameFor(model => model.FirstName)*@
+                 </dt>
+
+                 <dd>
+                     @Html.DisplayFor(model => model.FirstName)
+                 </dd>
+                 <dt>
+                     <span>Last Name</span>:<span></span><br />
+                     @*@Html.DisplayNameFor(model => model.LastName)*@
+                 </dt>
+                 <dd>
+                     @Html.DisplayFor(model => model.LastName)
+                 </dd>
+                 <dt>
+                     <span>Address</span>:<span></span><br />
+                     @*@Html.DisplayNameFor(model => model.Address)*@
+                 </dt>
+                 <dd>
+                     @Html.DisplayFor(model => model.Address)
+                 </dd>
+                 <dt>
+                     <span>My Phone</span>:<span></span><br />
+
+                     @*@Html.DisplayNameFor(model => model.MyPhone)*@
+                 </dt>
+                 <dd>
+                     @Html.DisplayFor(model => model.MyPhone)
+                 </dd>
+             </dl>
+         </div>
+     </div>
+</div>
+
+
+@*@if (Model != null)
+{
+    <div>
+        <span>First Name</span>:<span>@Model.FirstName</span><br />
+        <span>Last Name</span>:<span>@Model.LastName</span><br />
+        <span>Address</span>:<span>@Model.Address</span><br />
+        <span>Phone</span>:<span>@Model.MyPhone</span><br />
+    </div>
+
+
+}
+else
+{
+    <div>No record found</div>
+}*@

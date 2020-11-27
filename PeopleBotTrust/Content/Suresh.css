@@ -1,0 +1,16 @@
+﻿body {
+    padding:100px;
+}
+.panel-heading {
+    position: relative;
+}
+
+.panel-tool {
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+
+

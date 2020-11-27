@@ -1,0 +1,191 @@
+﻿@model PeopleBotTrust.Models.CustomerModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Customer</h3>
+        <div class="panel-tool"> <a class="btn btn-info btn-sm" href="/Customer/create">Create</a> </div>
+    </div>
+    <div class="panel-body">
+        <table id="Position" class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.MiddleName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.LastName)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.Address1)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Address2)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.ZipCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.ModifiedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerDetails.ModifiedDate)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>*@
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.CustomerList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MiddleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address1)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Address2)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedDate)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>*@
+                    <td>
+                        <a class="btn btn-xs btn-warning" href="/Customer/Edit/@item.Id" title="Edit Record"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <button type="button" title="View Detail" class="btn btn-xs btn-info show-detail" data-url="/Customer/Details/@(item.Id)"><i class="glyphicon glyphicon-eye-open"></i></button>
+                        <button type="button" title="Delete Record" class="btn btn-xs btn-danger delete-row" data-url="/Customer/Delete/@(item.Id)"><i class="glyphicon glyphicon-remove"></i></button>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="Customer-detail" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">Close</button>
+                <a type="button" class="btn btn-sm btn-primary" href="/Customer/">Edit</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@section scripts
+{
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+
+            $(".show-detail").click(function (event) {               
+                let $this = $(this);
+                let url = $this.attr("data-url");
+
+
+                $.ajax({
+                    method: "get",
+                    url: url,
+                    dataType: "json", //"json" or "html" or...
+                    success: function (response) {
+
+
+                        let text = `<div class="">
+                                        <dl class="dl-horizontal">
+                                        <dt>Name</dt>
+                                        <dd>${response.Data.Name}</dd>
+
+                                        <dt>Description</dt>
+                                            <dd>${response.Data.Description}</dd>
+                                        </dl>
+                                </div>`;
+
+
+
+                        $("#Customer-detail").modal();
+                        $('#Customer-detail').on('shown.bs.modal', function (event) {
+                            var modal = $(this)
+                            modal.find('.modal-title').text('Position Detail');
+                            modal.find('.modal-body').html(text);                            
+                            modal.find('.modal-footer a').attr("href", "/customer/edit/" + response.Data.Id);
+                            //modal.find('.modal-footer').children("a").attr("href", "/customer/edit/" + response.Data.Id)
+                            //$("#modal-edit-link").attr("href", "/customer/edit/"+response.Data.Id)
+                        })
+                    },
+                    error: function () {
+                        alert('error')
+                    }
+                });
+
+
+            });
+        });
+    </script>
+}

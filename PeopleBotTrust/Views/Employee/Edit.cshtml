@@ -1,0 +1,113 @@
+﻿@model PeopleBotTrust.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h3 class="panel-title">Edit Employee</h3>
+    </div>
+    <div class="panel-body">
+        <form action="/Employee/Edit/@(Model?.ID)" method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+
+                <div class="form-group">
+                    <label for="FirstName" class="control-label col-md-2">FirstName</label>
+                    <div class="col-md-10">
+                        <input name="FirstName" id="FirstName" value="@(Model?.FirstName)" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="LastName" class="control-label col-md-2">LastName</label>
+                    <div class="col-md-10">
+                        <input name="LastName" id="LastName" value="@(Model?.LastName)" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Department" class="control-label col-md-2">Department</label>
+                    <div class="col-md-10">
+                        <select name="Department" id="Department" class="form-control">
+                            <option value="">-- Select --</option>
+                            @if (Model.DepartmentList != null)
+                            {
+                                foreach (var item in Model.DepartmentList)
+                                {
+                                    <option value="@(item.Id)" @(Model.Department == item.Id ? "selected" : "")>@(item.Name)</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Category" class="control-label col-md-2">Category</label>
+                    <div class="col-md-10">
+                        <input name="Category" id="Category" value="@(Model?.Category)" class="form-control" />
+                        <select name="Category" id="Category" class="form-control">
+                            <option value="">--Select--</option>
+                                 @if (Model.CategoryList != null)
+                                        {
+                                            foreach (var item in Model.CategoryList)
+
+                                            {
+                                            <option value="@(item.Id)"@(Model.Category == item.Id ? "selected" :"")>@(item.Name)</option>
+                                            }
+                                        }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Salary" class="control-label col-md-2">Salary</label>
+                    <div class="col-md-10">
+                        <input name="Salary" id="Salary" value="@(Model?.Salary)" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Title" class="control-label col-md-2">Title</label>
+                    <div class="col-md-10">
+                        <input type="text" name="Title" id="Title" value="@(Model?.Title)" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <select name="isActive" id="isActive" class="form-control">
+                            <option value="">-- Select --</option>
+                            <option value="true">Active</option>
+                            <option value="false">In-Active</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                        <a class="btn btn-warning" href="/employee/">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@*<div class="form-group">
+
+        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                <input type="checkbox" name="isActive" id="isActive" value="@(Model?.IsActive)" class="text-danger" />
+            </div>
+        </div>
+    </div>*@
