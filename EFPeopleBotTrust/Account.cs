@@ -17,7 +17,6 @@ namespace EFPeopleBotTrust
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Account()
         {
-            this.AccountTransactions = new HashSet<AccountTransaction>();
             this.Transactions = new HashSet<Transaction>();
         }
     
@@ -31,8 +30,6 @@ namespace EFPeopleBotTrust
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<bool> Status { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AccountTransaction> AccountTransactions { get; set; }
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transaction> Transactions { get; set; }

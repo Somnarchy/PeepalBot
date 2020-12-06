@@ -13,7 +13,6 @@ namespace PeopleBotTrust.Models
         public Account AccountDetails { get; set; }
 
         public List<SelectListItem> AccountTypeSelectList { get; set; }
-
         public List<SelectListItem> CustomerSelectList { get; set; }
         public List<Customer> CustomerList { get; set; }
 

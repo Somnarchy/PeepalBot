@@ -14,20 +14,6 @@
     <Property Name="ModifiedBy" Type="int" />
     <Property Name="Status" Type="bit" />
   </EntityType>
-  <EntityType Name="AccountTransaction">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AccountId" Type="int" Nullable="false" />
-    <Property Name="Trxn" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Amount" Type="money" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="int" />
-    <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="int" />
-    <Property Name="TrxnType" Type="int" />
-  </EntityType>
   <EntityType Name="AccountType">
     <Key>
       <PropertyRef Name="Id" />
@@ -135,18 +121,6 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
-  <Association Name="FK_AccountAccountTransaction">
-    <End Role="Account" Type="Self.Account" Multiplicity="1" />
-    <End Role="AccountTransaction" Type="Self.AccountTransaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AccountTransaction">
-        <PropertyRef Name="AccountId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_AccountAccountTypeId">
     <End Role="AccountType" Type="Self.AccountType" Multiplicity="1" />
     <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -245,7 +219,6 @@
   </Association>
   <EntityContainer Name="peepalbot_dbModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AccountTransaction" EntityType="Self.AccountTransaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerDocument" EntityType="Self.CustomerDocument" Schema="dbo" store:Type="Tables" />
@@ -255,10 +228,6 @@
     <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_AccountAccountTransaction" Association="Self.FK_AccountAccountTransaction">
-      <End Role="Account" EntitySet="Account" />
-      <End Role="AccountTransaction" EntitySet="AccountTransaction" />
-    </AssociationSet>
     <AssociationSet Name="FK_AccountAccountTypeId" Association="Self.FK_AccountAccountTypeId">
       <End Role="AccountType" EntitySet="AccountType" />
       <End Role="Account" EntitySet="Account" />

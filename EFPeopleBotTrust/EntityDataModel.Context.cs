@@ -18,7 +18,6 @@ namespace EFPeopleBotTrust
         public peepalbot_dbEntities()
             : base("name=peepalbot_dbEntities")
         {
-            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,7 +26,6 @@ namespace EFPeopleBotTrust
         }
     
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<AccountTransaction> AccountTransactions { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
@@ -35,7 +33,7 @@ namespace EFPeopleBotTrust
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<TransactionType> TransactionTypes { get; set; }
         public virtual DbSet<AccountType> AccountTypes { get; set; }
-        public virtual DbSet<CustomerDocument> CustomerDocuments { get; set; }
         public virtual DbSet<DocumentType> DocumentTypes { get; set; }
+        public virtual DbSet<CustomerDocument> CustomerDocuments { get; set; }
     }
 }

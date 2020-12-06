@@ -19,20 +19,6 @@
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="Status" Type="bit" />
         </EntityType>
-        <EntityType Name="AccountTransaction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AccountId" Type="int" Nullable="false" />
-          <Property Name="Trxn" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Amount" Type="money" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="CreatedBy" Type="int" />
-          <Property Name="ModifiedDate" Type="datetime" />
-          <Property Name="ModifiedBy" Type="int" />
-          <Property Name="TrxnType" Type="int" />
-        </EntityType>
         <EntityType Name="AccountType">
           <Key>
             <PropertyRef Name="Id" />
@@ -140,18 +126,6 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK_AccountAccountTransaction">
-          <End Role="Account" Type="Self.Account" Multiplicity="1" />
-          <End Role="AccountTransaction" Type="Self.AccountTransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AccountTransaction">
-              <PropertyRef Name="AccountId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_AccountAccountTypeId">
           <End Role="AccountType" Type="Self.AccountType" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -250,7 +224,6 @@
         </Association>
         <EntityContainer Name="peepalbot_dbModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AccountTransaction" EntityType="Self.AccountTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerDocument" EntityType="Self.CustomerDocument" Schema="dbo" store:Type="Tables" />
@@ -260,10 +233,6 @@
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AccountAccountTransaction" Association="Self.FK_AccountAccountTransaction">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="AccountTransaction" EntitySet="AccountTransaction" />
-          </AssociationSet>
           <AssociationSet Name="FK_AccountAccountTypeId" Association="Self.FK_AccountAccountTypeId">
             <End Role="AccountType" EntitySet="AccountType" />
             <End Role="Account" EntitySet="Account" />
@@ -303,17 +272,12 @@
       <Schema Namespace="peepalbot_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="peepalbot_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="peepalbot_dbModel.Account" />
-          <EntitySet Name="AccountTransactions" EntityType="peepalbot_dbModel.AccountTransaction" />
           <EntitySet Name="Customers" EntityType="peepalbot_dbModel.Customer" />
           <EntitySet Name="Departments" EntityType="peepalbot_dbModel.Department" />
           <EntitySet Name="Employees" EntityType="peepalbot_dbModel.Employee" />
           <EntitySet Name="Positions" EntityType="peepalbot_dbModel.Position" />
           <EntitySet Name="Transactions" EntityType="peepalbot_dbModel.Transaction" />
           <EntitySet Name="TransactionTypes" EntityType="peepalbot_dbModel.TransactionType" />
-          <AssociationSet Name="FK_AccountAccountTransaction" Association="peepalbot_dbModel.FK_AccountAccountTransaction">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="AccountTransaction" EntitySet="AccountTransactions" />
-          </AssociationSet>
           <AssociationSet Name="FK_AccountCustomerId" Association="peepalbot_dbModel.FK_AccountCustomerId">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Account" EntitySet="Accounts" />
@@ -339,8 +303,8 @@
             <End Role="AccountType" EntitySet="AccountTypes" />
             <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
-          <EntitySet Name="CustomerDocuments" EntityType="peepalbot_dbModel.CustomerDocument" />
           <EntitySet Name="DocumentTypes" EntityType="peepalbot_dbModel.DocumentType" />
+          <EntitySet Name="CustomerDocuments" EntityType="peepalbot_dbModel.CustomerDocument" />
           <AssociationSet Name="FK_CustomerDocumentCustomerId" Association="peepalbot_dbModel.FK_CustomerDocumentCustomerId">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerDocument" EntitySet="CustomerDocuments" />
@@ -349,7 +313,7 @@
             <End Role="DocumentType" EntitySet="DocumentTypes" />
             <End Role="CustomerDocument" EntitySet="CustomerDocuments" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
@@ -363,25 +327,9 @@
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="Status" Type="Boolean" />
-          <NavigationProperty Name="AccountTransactions" Relationship="peepalbot_dbModel.FK_AccountAccountTransaction" FromRole="Account" ToRole="AccountTransaction" />
           <NavigationProperty Name="Customer" Relationship="peepalbot_dbModel.FK_AccountCustomerId" FromRole="Account" ToRole="Customer" />
           <NavigationProperty Name="Transactions" Relationship="peepalbot_dbModel.FK_TransactionAccountId" FromRole="Account" ToRole="Transaction" />
           <NavigationProperty Name="AccountType" Relationship="peepalbot_dbModel.FK_AccountAccountTypeId" FromRole="Account" ToRole="AccountType" />
-        </EntityType>
-        <EntityType Name="AccountTransaction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AccountId" Type="Int32" Nullable="false" />
-          <Property Name="Trxn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="TrxnType" Type="Int32" />
-          <NavigationProperty Name="Account" Relationship="peepalbot_dbModel.FK_AccountAccountTransaction" FromRole="AccountTransaction" ToRole="Account" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -474,18 +422,6 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Transactions" Relationship="peepalbot_dbModel.FK_TransactionTranTypeId" FromRole="TransactionType" ToRole="Transaction" />
         </EntityType>
-        <Association Name="FK_AccountAccountTransaction">
-          <End Type="peepalbot_dbModel.Account" Role="Account" Multiplicity="1" />
-          <End Type="peepalbot_dbModel.AccountTransaction" Role="AccountTransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AccountTransaction">
-              <PropertyRef Name="AccountId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_AccountCustomerId">
           <End Type="peepalbot_dbModel.Customer" Role="Customer" Multiplicity="1" />
           <End Type="peepalbot_dbModel.Account" Role="Account" Multiplicity="*" />
@@ -567,15 +503,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="CustomerDocument">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DocumentContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Customer" Relationship="peepalbot_dbModel.FK_CustomerDocumentCustomerId" FromRole="CustomerDocument" ToRole="Customer" />
-          <NavigationProperty Name="DocumentType" Relationship="peepalbot_dbModel.FK_CustomerDocumentDocType" FromRole="CustomerDocument" ToRole="DocumentType" />
-        </EntityType>
         <EntityType Name="DocumentType">
           <Key>
             <PropertyRef Name="Id" />
@@ -585,13 +512,40 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CustomerDocuments" Relationship="peepalbot_dbModel.FK_CustomerDocumentDocType" FromRole="DocumentType" ToRole="CustomerDocument" />
         </EntityType>
+        <EntityType Name="CustomerDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="DocumentTypeId" Type="Int16" Nullable="false" />
+          <Property Name="DocumentContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="peepalbot_dbModel.FK_CustomerDocumentCustomerId" FromRole="CustomerDocument" ToRole="Customer" />
+          <NavigationProperty Name="DocumentType" Relationship="peepalbot_dbModel.FK_CustomerDocumentDocType" FromRole="CustomerDocument" ToRole="DocumentType" />
+        </EntityType>
         <Association Name="FK_CustomerDocumentCustomerId">
           <End Type="peepalbot_dbModel.Customer" Role="Customer" Multiplicity="1" />
           <End Type="peepalbot_dbModel.CustomerDocument" Role="CustomerDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerDocument">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerDocumentDocType">
           <End Type="peepalbot_dbModel.DocumentType" Role="DocumentType" Multiplicity="1" />
           <End Type="peepalbot_dbModel.CustomerDocument" Role="CustomerDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerDocument">
+              <PropertyRef Name="DocumentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -610,21 +564,6 @@
                 <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AccountTransactions">
-            <EntityTypeMapping TypeName="peepalbot_dbModel.AccountTransaction">
-              <MappingFragment StoreEntitySet="AccountTransaction">
-                <ScalarProperty Name="TrxnType" ColumnName="TrxnType" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Trxn" ColumnName="Trxn" />
-                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -726,14 +665,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CustomerDocuments">
-            <EntityTypeMapping TypeName="peepalbot_dbModel.CustomerDocument">
-              <MappingFragment StoreEntitySet="CustomerDocument">
-                <ScalarProperty Name="DocumentContent" ColumnName="DocumentContent" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DocumentTypes">
             <EntityTypeMapping TypeName="peepalbot_dbModel.DocumentType">
               <MappingFragment StoreEntitySet="DocumentType">
@@ -743,23 +674,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="FK_CustomerDocumentCustomerId" TypeName="peepalbot_dbModel.FK_CustomerDocumentCustomerId" StoreEntitySet="CustomerDocument">
-            <EndProperty Name="CustomerDocument">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <EndProperty Name="Customer">
-              <ScalarProperty Name="Id" ColumnName="CustomerId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_CustomerDocumentDocType" TypeName="peepalbot_dbModel.FK_CustomerDocumentDocType" StoreEntitySet="CustomerDocument">
-            <EndProperty Name="CustomerDocument">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <EndProperty Name="DocumentType">
-              <ScalarProperty Name="Id" ColumnName="DocumentTypeId" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="CustomerDocuments">
+            <EntityTypeMapping TypeName="peepalbot_dbModel.CustomerDocument">
+              <MappingFragment StoreEntitySet="CustomerDocument">
+                <ScalarProperty Name="DocumentContent" ColumnName="DocumentContent" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -774,7 +699,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

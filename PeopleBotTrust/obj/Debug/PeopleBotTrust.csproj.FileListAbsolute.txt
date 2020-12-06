@@ -1,3 +1,4 @@
+C:\Projects\PeopleBotTrust\PeopleBotTrust\obj\Debug\PeopleBotTrust.csprojAssemblyReference.cache
 C:\Projects\PeopleBotTrust\PeopleBotTrust\bin\peepalbot_db.mdf
 C:\Projects\PeopleBotTrust\PeopleBotTrust\bin\peepalbot_db_log.ldf
 C:\Projects\PeopleBotTrust\PeopleBotTrust\bin\PeopleBotTrust.dll.config
@@ -78,7 +79,6 @@ C:\Projects\PeopleBotTrust\PeopleBotTrust\bin\System.Web.WebPages.Razor.xml
 C:\Projects\PeopleBotTrust\PeopleBotTrust\bin\Newtonsoft.Json.xml
 C:\Projects\PeopleBotTrust\PeopleBotTrust\bin\Antlr3.Runtime.pdb
 C:\Projects\PeopleBotTrust\PeopleBotTrust\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Projects\PeopleBotTrust\PeopleBotTrust\obj\Debug\PeopleBotTrust.csprojAssemblyReference.cache
 C:\Projects\PeopleBotTrust\PeopleBotTrust\obj\Debug\PeopleBotTrust.csproj.CoreCompileInputs.cache
 C:\Projects\PeopleBotTrust\PeopleBotTrust\obj\Debug\PeopleBotTrust.csproj.CopyComplete
 C:\Projects\PeopleBotTrust\PeopleBotTrust\obj\Debug\PeopleBotTrust.dll

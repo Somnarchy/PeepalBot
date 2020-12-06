@@ -60,9 +60,6 @@ namespace PeopleBotTrust.Controllers
             var accountTypeService = new AccountTypeService();
             model.AccountTypeSelectList = accountTypeService.GetSelectList();
             model.AccountDetails = new Account();
-
-
-
             return View(model);
         }
 
@@ -76,7 +73,6 @@ namespace PeopleBotTrust.Controllers
             //customer save
             var customerId = _service.Create(model.CustomerDetails);
 
-
             //account save
             // need custermId
             if (model.AccountDetails != null)
@@ -85,7 +81,6 @@ namespace PeopleBotTrust.Controllers
                 model.AccountDetails.CustomerId = customerId;
                 accountService.Create(model.AccountDetails);
             }
-
             return RedirectToAction("Index");
 
         }
@@ -97,7 +92,6 @@ namespace PeopleBotTrust.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
 
             var model = new CustomerModel()
             {

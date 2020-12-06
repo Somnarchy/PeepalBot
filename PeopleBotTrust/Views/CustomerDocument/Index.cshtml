@@ -1,0 +1,49 @@
+﻿@model PeopleBotTrust.Models.CustomerDocumentModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerDocument.Customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerDocument.DocumentContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerDocument.DocumentType)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.CustomerDocumentList)
+    {
+        <tr>
+            <td>
+                @(item.Customer.FirstName + " " + item.Customer.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentType.Name)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
