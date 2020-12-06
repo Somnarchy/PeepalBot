@@ -25,8 +25,8 @@ namespace PeopleBotTrust
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                       "~/Content/Suresh.css",
-                      "~/Content/site.css"));
+                   
+                      "~/Content/css/site.css"));
         }
     }
 }

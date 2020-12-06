@@ -15,6 +15,8 @@ namespace EFPeopleBotTrust
     public partial class CustomerDocument
     {
         public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public short DocumentTypeId { get; set; }
         public string DocumentContent { get; set; }
     
         public virtual Customer Customer { get; set; }

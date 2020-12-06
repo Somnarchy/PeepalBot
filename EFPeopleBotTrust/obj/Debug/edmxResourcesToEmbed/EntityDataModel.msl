@@ -16,21 +16,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AccountTransactions">
-      <EntityTypeMapping TypeName="peepalbot_dbModel.AccountTransaction">
-        <MappingFragment StoreEntitySet="AccountTransaction">
-          <ScalarProperty Name="TrxnType" ColumnName="TrxnType" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Trxn" ColumnName="Trxn" />
-          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="peepalbot_dbModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
@@ -128,14 +113,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CustomerDocuments">
-      <EntityTypeMapping TypeName="peepalbot_dbModel.CustomerDocument">
-        <MappingFragment StoreEntitySet="CustomerDocument">
-          <ScalarProperty Name="DocumentContent" ColumnName="DocumentContent" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DocumentTypes">
       <EntityTypeMapping TypeName="peepalbot_dbModel.DocumentType">
         <MappingFragment StoreEntitySet="DocumentType">
@@ -145,21 +122,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="FK_CustomerDocumentCustomerId" TypeName="peepalbot_dbModel.FK_CustomerDocumentCustomerId" StoreEntitySet="CustomerDocument">
-      <EndProperty Name="CustomerDocument">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-      <EndProperty Name="Customer">
-        <ScalarProperty Name="Id" ColumnName="CustomerId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_CustomerDocumentDocType" TypeName="peepalbot_dbModel.FK_CustomerDocumentDocType" StoreEntitySet="CustomerDocument">
-      <EndProperty Name="CustomerDocument">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-      <EndProperty Name="DocumentType">
-        <ScalarProperty Name="Id" ColumnName="DocumentTypeId" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="CustomerDocuments">
+      <EntityTypeMapping TypeName="peepalbot_dbModel.CustomerDocument">
+        <MappingFragment StoreEntitySet="CustomerDocument">
+          <ScalarProperty Name="DocumentContent" ColumnName="DocumentContent" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

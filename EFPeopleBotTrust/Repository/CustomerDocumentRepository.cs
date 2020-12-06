@@ -29,8 +29,8 @@ namespace EFPeopleBotTrust.Repository
         public int Save(CustomerDocument model)
         {
             _context.CustomerDocuments.Add(model);
-            var insertedId = _context.SaveChanges();
-            return insertedId;
+             _context.SaveChanges();
+            return model.Id;
         }
 
         public void Update(CustomerDocument model)
