@@ -95,8 +95,8 @@ namespace PeopleBotTrust.Controllers
         // GET: TransactionType/Delete/5
         public ActionResult Delete(int id)
         {
-    
-           
+
+            return null;
         }
 
         //POST: TransactionType/Delete/5
