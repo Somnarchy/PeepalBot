@@ -30,7 +30,6 @@ namespace PeopleBotTrust.Controllers
             if (Request.IsAjaxRequest())
             {
 
-
                 //return PartialView("_details",model);
                 ResponseMessage responseMessage = new ResponseMessage(MessageType.Info)
                 {
@@ -55,12 +54,11 @@ namespace PeopleBotTrust.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description")] TransactionType transactionType)
+        public ActionResult Create( TransactionType transactionType)
         {
             if (ModelState.IsValid)
             {
-                db.TransactionTypes.Add(transactionType);
-                db.SaveChanges();
+                _service.Create(transactionType);
                 return RedirectToAction("Index");
             }
 
@@ -68,18 +66,19 @@ namespace PeopleBotTrust.Controllers
         }
 
         // GET: TransactionType/Edit/5
-        public ActionResult Edit(short? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TransactionType transactionType = db.TransactionTypes.Find(id);
+            var transactionType = _service.GetDetails((int)id);
             if (transactionType == null)
             {
                 return HttpNotFound();
             }
             return View(transactionType);
+
         }
 
         // POST: TransactionType/Edit/5
@@ -87,50 +86,30 @@ namespace PeopleBotTrust.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description")] TransactionType transactionType)
+        public ActionResult Edit( TransactionType transactionType)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(transactionType).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+       
             return View(transactionType);
         }
 
         // GET: TransactionType/Delete/5
-        public ActionResult Delete(short? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TransactionType transactionType = db.TransactionTypes.Find(id);
-            if (transactionType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(transactionType);
+    
+           
         }
 
-        // POST: TransactionType/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(short id)
-        {
-            TransactionType transactionType = db.TransactionTypes.Find(id);
-            db.TransactionTypes.Remove(transactionType);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //POST: TransactionType/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(short id)
+        //{
+        //    TransactionType transactionType = db.TransactionTypes.Find(id);
+        //    db.TransactionTypes.Remove(transactionType);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+
     }
 }

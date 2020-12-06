@@ -105,6 +105,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AccountId" Type="int" Nullable="false" />
     <Property Name="TransactionTypeId" Type="smallint" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EntryType" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />

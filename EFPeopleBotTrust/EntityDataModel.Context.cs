@@ -30,10 +30,10 @@ namespace EFPeopleBotTrust
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
-        public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<TransactionType> TransactionTypes { get; set; }
         public virtual DbSet<AccountType> AccountTypes { get; set; }
         public virtual DbSet<DocumentType> DocumentTypes { get; set; }
         public virtual DbSet<CustomerDocument> CustomerDocuments { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
     }
 }
