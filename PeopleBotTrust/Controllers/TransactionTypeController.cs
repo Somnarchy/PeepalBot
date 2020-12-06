@@ -29,6 +29,8 @@ namespace PeopleBotTrust.Controllers
 
             if (Request.IsAjaxRequest())
             {
+
+
                 //return PartialView("_details",model);
                 ResponseMessage responseMessage = new ResponseMessage(MessageType.Info)
                 {
