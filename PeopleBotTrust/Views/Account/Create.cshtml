@@ -21,16 +21,16 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Account.AccountType, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <label class="control-label col-md-2">Account Type</label>
                     <div class="col-md-10">
                         @Html.DropDownListFor(m => m.Account.AccountTypeId, Model.AccountTypeList, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Account.AccountTypeId, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Account.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
+                        @*<input type="text" name="Account.Name" class="form-control" value="@(Model.Account.Name)" />*@
                         @Html.TextBoxFor(model => model.Account.Name, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Account.Name, "", new { @class = "text-danger" })
                     </div>

@@ -1,0 +1,11 @@
+C:\Projects\Peepalbot\EFPeepalbot\bin\Debug\EFPeepalbot.dll.config
+C:\Projects\Peepalbot\EFPeepalbot\bin\Debug\EFPeepalbot.dll
+C:\Projects\Peepalbot\EFPeepalbot\bin\Debug\EFPeepalbot.pdb
+C:\Projects\Peepalbot\EFPeepalbot\bin\Debug\EntityFramework.dll
+C:\Projects\Peepalbot\EFPeepalbot\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\Peepalbot\EFPeepalbot\bin\Debug\EntityFramework.xml
+C:\Projects\Peepalbot\EFPeepalbot\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\Peepalbot\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CoreCompileInputs.cache
+C:\Projects\Peepalbot\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CopyComplete
+C:\Projects\Peepalbot\EFPeepalbot\obj\Debug\EFPeepalbot.dll
+C:\Projects\Peepalbot\EFPeepalbot\obj\Debug\EFPeepalbot.pdb

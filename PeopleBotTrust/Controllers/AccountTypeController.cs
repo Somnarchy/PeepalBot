@@ -139,23 +139,5 @@ namespace PeopleBotTrust.Controllers
             }
             return Json(responseMessage);
         }
-
-
-
-
-
-
-        //POST: AccountType/Delete/5
-
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    _service.Delete(id);
-        //    return Json(true);
-
-        //    return RedirectToAction("Index");
-        //}        
-
     }
 }

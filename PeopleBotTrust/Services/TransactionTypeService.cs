@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PeopleBotTrust.Services
 {
@@ -42,5 +43,29 @@ namespace PeopleBotTrust.Services
         {
             _repository.Delete(id);
         }
+
+        public List<SelectListItem> GetSelectList()
+        {
+
+            var list = GetList();
+
+            var transactionTypeSelectList = new List<SelectListItem>();
+
+            if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    var selectItem = new SelectListItem
+                    {
+                        Text = item.Name,
+                        Value = item.Id.ToString(),
+                    };
+                    transactionTypeSelectList.Add(selectItem);
+                }
+            }
+
+            return transactionTypeSelectList;
+        }
+
     }
 }

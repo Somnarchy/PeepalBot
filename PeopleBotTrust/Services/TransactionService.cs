@@ -28,12 +28,16 @@ namespace PeopleBotTrust.Services
 
         public int Create(Transaction model)
         {
+            model.CreatedBy = 123;
+            model.CreatedDate = DateTime.Now;
+            model.Status = true;
             return _repository.Save(model);
         }
 
         public void Update(Transaction model)
         {
-
+            model.ModifiedBy = 123;
+            model.ModifiedDate = DateTime.Now;
             _repository.Update(model);
         }
 

@@ -155,11 +155,14 @@
     <Compile Include="Models\CustomerDocumentModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\FormTestingModel.cs" />
+    <Compile Include="Models\MeetingModel.cs" />
     <Compile Include="Models\MemberLoginInfoModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\EmployeePositionModel.cs" />
     <Compile Include="Models\MemberModel.cs" />
+    <Compile Include="Models\MonthlyInsallmentModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\EmployeeRepository.cs" />
@@ -186,6 +189,7 @@
     <Content Include="Content\css\AdminLTE.css" />
     <Content Include="Content\css\AdminLTE.min.css" />
     <Content Include="Content\css\AwesomeFont.css" />
+    <Content Include="Content\js\adminlte.min.js" />
     <Content Include="Content\js\demo.js" />
     <Content Include="Content\js\site.js" />
     <Content Include="Content\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
@@ -1974,6 +1978,16 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\_LayoutAjax.cshtml" />
     <Content Include="Views\Transaction\MonthlyMeeting.cshtml" />
+    <Content Include="Views\TransactionType\Index.cshtml" />
+    <Content Include="Views\TransactionType\Details.cshtml" />
+    <Content Include="Views\TransactionType\Create.cshtml" />
+    <Content Include="Views\TransactionType\Delete.cshtml" />
+    <Content Include="Views\Transaction\Index.cshtml" />
+    <Content Include="Views\Transaction\Edit.cshtml" />
+    <Content Include="Views\Transaction\Delete.cshtml" />
+    <Content Include="Views\TransactionType\Edit.cshtml" />
+    <Content Include="Views\Transaction\Create.cshtml" />
+    <Content Include="Views\Transaction\MonthlyMeeting1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1981,8 +1995,6 @@
     <Folder Include="Content\UploadFiles\CustomerDocuments\" />
     <Folder Include="Content\webfonts\" />
     <Folder Include="Views\Pages\" />
-    <Folder Include="Views\Test\" />
-    <Folder Include="Views\TransactionType\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

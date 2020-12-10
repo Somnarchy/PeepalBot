@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using EFPeopleBotTrust;
 using EFPeopleBotTrust.Repository;
 using PeopleBotTrust.Models;
@@ -39,6 +40,29 @@ namespace PeopleBotTrust.Services
         public void Delete(int id)
         {
             _repository.Delete(id);
+        }
+
+
+        public List<SelectListItem> GetSelectList()
+        {
+            var accountList = GetList();
+
+            var accountSelectList = new List<SelectListItem>();
+
+            if (accountList != null)
+            {
+                foreach (var item in accountList)
+                {
+                    var selectItem = new SelectListItem
+                    {
+                        Text = $"{item.Name}",
+                        Value = item.Id.ToString(),
+                    };
+                    accountSelectList.Add(selectItem);
+                }
+
+            }
+            return accountSelectList;
         }
     }
 }

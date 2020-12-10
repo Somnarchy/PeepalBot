@@ -25,3 +25,4 @@ D:\Cenero\Projects\PeepalBot\EFPeopleBotTrust\obj\Debug\EFPeopleBotTrust.csproj.
 D:\Cenero\Projects\PeepalBot\EFPeopleBotTrust\obj\Debug\EFPeopleBotTrust.csproj.CopyComplete
 D:\Cenero\Projects\PeepalBot\EFPeopleBotTrust\obj\Debug\EFPeopleBotTrust.dll
 D:\Cenero\Projects\PeepalBot\EFPeopleBotTrust\obj\Debug\EFPeopleBotTrust.pdb
+C:\Projects\PeopleBotTrust\EFPeopleBotTrust\obj\Debug\EFPeopleBotTrust.csprojAssemblyReference.cache

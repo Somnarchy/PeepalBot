@@ -6,21 +6,8 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
-            <li class="nav-item d-none d-sm-inline-block">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
-            <li class="nav-item d-none d-sm-inline-block">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
-            <li class="nav-item">@Html.ActionLink("Employee", "index", "Employee", new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("Customer", "index", "Customer", new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("Department", "index", "Department")</li>
-        <li class="nav-item">@Html.ActionLink("Position", "index", "Position", new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("Position", "index", "Position", new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("AccountType", "index", "AccountType", new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("Account", "index", "Account", new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("DocumentType", "index", "DocumentType", new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("CustomerDocument", "index", "CustomerDocument", new { @class = "nav-link" })</li>
-            <!-- SEARCH FORM -->
-            @*<li class="nav-item d-none d-sm-inline-block">@Html.Partial("~/views/shared/SearchForm.cshtml", new { @class = "nav-link" })</li>*@
-
+            <li >@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
+            <li >@Html.Partial("~/views/shared/SearchForm.cshtml", new { @class = "nav-link" })</li>
         </ul>
     </div>
 </nav>

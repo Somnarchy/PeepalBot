@@ -66,7 +66,7 @@ namespace PeopleBotTrust.Controllers
         }
 
         // GET: TransactionType/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -88,27 +88,60 @@ namespace PeopleBotTrust.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit( TransactionType transactionType)
         {
-       
+            if (ModelState.IsValid)
+            {
+                _service.Update(transactionType);
+                return RedirectToAction("Index");
+            }
+
             return View(transactionType);
         }
 
         // GET: TransactionType/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
 
-            return null;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var transactionType = _service.GetDetails((int)id);
+            if (transactionType == null)
+            {
+                return HttpNotFound();
+            }
+            return View(transactionType);
         }
 
-        //POST: TransactionType/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(short id)
-        //{
-        //    TransactionType transactionType = db.TransactionTypes.Find(id);
-        //    db.TransactionTypes.Remove(transactionType);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        // Post Delete
+        [HttpPost]
+        public JsonResult Delete(int id, FormCollection collection)
+        {
+            ResponseMessage responseMessage = null;
+            try
+            {
+                _service.Delete(id);
+                responseMessage = new ResponseMessage(MessageType.Success)
+                {
+                    Status = true,
+                    Message = "Record successfully deleted.",
+                    Title = "Delete record.",
+                };
+            }
+            catch (Exception e)
+            {
+                responseMessage = new ResponseMessage(MessageType.Failure)
+                {
+                    Status = false,
+                    Message = e.Message,
+                    Title = "Error Deleting record."
+
+                };
+            }
+            return Json(responseMessage);
+        }
+
 
 
     }
