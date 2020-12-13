@@ -21,7 +21,6 @@ C:\Projects\PeopleBotTrust\EFPeepalbot\bin\Debug\EntityFramework.dll
 C:\Projects\PeopleBotTrust\EFPeepalbot\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\PeopleBotTrust\EFPeepalbot\bin\Debug\EntityFramework.xml
 C:\Projects\PeopleBotTrust\EFPeepalbot\bin\Debug\EntityFramework.SqlServer.xml
-C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.csprojAssemblyReference.cache
 C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CoreCompileInputs.cache
 C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CopyComplete
 C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.dll
