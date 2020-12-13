@@ -14,6 +14,12 @@ namespace EFPeepalbot
     
     public partial class Account
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Account()
+        {
+            this.Transactions = new HashSet<Transaction>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public int CustomerId { get; set; }
@@ -26,5 +32,7 @@ namespace EFPeepalbot
     
         public virtual AccountType AccountType { get; set; }
         public virtual Customer Customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace EFPeepalbot
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class PeepalbotEntities : DbContext
     {
-        public Entities()
-            : base("name=peepalbot_dbEntities")
+        public PeepalbotEntities()
+            : base("name=PeepalbotEntities")
         {
         }
     
@@ -27,16 +27,13 @@ namespace EFPeepalbot
     
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<AccountType> AccountTypes { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerDocument> CustomerDocuments { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<DocumentType> DocumentTypes { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<TransactionType> TransactionTypes { get; set; }
     }
 }

@@ -182,16 +182,50 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\UserAccountController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountTypeController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerDocumentController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DocumentTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="Controllers\TransactionTypeController.cs" />
+    <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Helpers\HtmlHelperExtensionsActionLink.cs" />
+    <Compile Include="Helpers\ResponseMessage.cs" />
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\CustomerDocumentModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\EmployeePositionModel.cs" />
+    <Compile Include="Models\FormTestingModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MeetingModel.cs" />
+    <Compile Include="Models\MemberLoginInfoModel.cs" />
+    <Compile Include="Models\MonthlyInsallmentModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
+    <Compile Include="Models\UserAccountViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\AccountTypeService.cs" />
+    <Compile Include="Services\CustomerDocumentService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\DocumentTypeService.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\MemberLoginService.cs" />
+    <Compile Include="Services\PositionService.cs" />
+    <Compile Include="Services\TransactionService.cs" />
+    <Compile Include="Services\TransactionTypeService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +266,42 @@
     <Content Include="Content\fonts\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\AdminLTELogo.png" />
+    <Content Include="Content\img\avatar.png" />
+    <Content Include="Content\img\avatar04.png" />
+    <Content Include="Content\img\avatar2.png" />
+    <Content Include="Content\img\avatar3.png" />
+    <Content Include="Content\img\avatar5.png" />
+    <Content Include="Content\img\boxed-bg.jpg" />
+    <Content Include="Content\img\boxed-bg.png" />
+    <Content Include="Content\img\credit\american-express.png" />
+    <Content Include="Content\img\credit\cirrus.png" />
+    <Content Include="Content\img\credit\mastercard.png" />
+    <Content Include="Content\img\credit\mestro.png" />
+    <Content Include="Content\img\credit\paypal.png" />
+    <Content Include="Content\img\credit\paypal2.png" />
+    <Content Include="Content\img\credit\visa.png" />
+    <Content Include="Content\img\default-150x150.png" />
+    <Content Include="Content\img\icons.png" />
+    <Content Include="Content\img\PeepalTree.jpg" />
+    <Content Include="Content\img\photo1.png" />
+    <Content Include="Content\img\photo2.png" />
+    <Content Include="Content\img\photo3.jpg" />
+    <Content Include="Content\img\photo4.jpg" />
+    <Content Include="Content\img\prod-1.jpg" />
+    <Content Include="Content\img\prod-2.jpg" />
+    <Content Include="Content\img\prod-3.jpg" />
+    <Content Include="Content\img\prod-4.jpg" />
+    <Content Include="Content\img\prod-5.jpg" />
+    <Content Include="Content\img\user-8.jpg" />
+    <Content Include="Content\img\user1-128x128.jpg" />
+    <Content Include="Content\img\user2-160x160.jpg" />
+    <Content Include="Content\img\user3-128x128.jpg" />
+    <Content Include="Content\img\user4-128x128.jpg" />
+    <Content Include="Content\img\user5-128x128.jpg" />
+    <Content Include="Content\img\user6-128x128.jpg" />
+    <Content Include="Content\img\user7-128x128.jpg" />
+    <Content Include="Content\img\user8-128x128.jpg" />
     <Content Include="Content\plugins\bootstrap\bootstrap.css" />
     <Content Include="Content\plugins\bootstrap\bootstrap.js" />
     <Content Include="Content\plugins\bootstrap\bootstrap.min.css" />
@@ -248,6 +318,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
@@ -260,6 +332,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\UploadFiles\CustomerDocuments\13\Publication2-233245.pub" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -271,21 +344,27 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Celander\calendar.html" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\UserAccount\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_ControlSidebar.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LogoHeader.cshtml" />
+    <Content Include="Views\Shared\_MainFooter.cshtml" />
+    <Content Include="Views\Shared\_MainSidebar.cshtml" />
+    <Content Include="Views\Shared\_NavbarHeader.cshtml" />
+    <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\UserAccount\ConfirmEmail.cshtml" />
     <Content Include="Views\UserAccount\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\UserAccount\ExternalLoginFailure.cshtml" />
@@ -297,25 +376,75 @@
     <Content Include="Views\UserAccount\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\UserAccount\SendCode.cshtml" />
     <Content Include="Views\UserAccount\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\Layout.cshtml" />
-    <Content Include="Views\Shared\_LogoHeader.cshtml" />
-    <Content Include="Views\Shared\_NavbarHeader.cshtml" />
-    <Content Include="Views\Shared\_MainSidebar.cshtml" />
-    <Content Include="Views\Shared\_PageHeader.cshtml" />
-    <Content Include="Views\Shared\_MainFooter.cshtml" />
-    <Content Include="Views\Shared\_ControlSidebar.cshtml" />
+    <Content Include="Views\UserAccount\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\AccountType\Create.cshtml" />
+    <Content Include="Views\AccountType\Delete.cshtml" />
+    <Content Include="Views\AccountType\Details.cshtml" />
+    <Content Include="Views\AccountType\Edit.cshtml" />
+    <Content Include="Views\AccountType\Index.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\CustomerDocument\Create.cshtml" />
+    <Content Include="Views\CustomerDocument\Delete.cshtml" />
+    <Content Include="Views\CustomerDocument\Details.cshtml" />
+    <Content Include="Views\CustomerDocument\Edit.cshtml" />
+    <Content Include="Views\CustomerDocument\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Detail.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\DocumentType\Create.cshtml" />
+    <Content Include="Views\DocumentType\Delete.cshtml" />
+    <Content Include="Views\DocumentType\Details.cshtml" />
+    <Content Include="Views\DocumentType\Edit.cshtml" />
+    <Content Include="Views\DocumentType\Index.cshtml" />
+    <Content Include="Views\FormTesting\Create.cshtml" />
+    <Content Include="Views\FormTesting\Edit.cshtml" />
+    <Content Include="Views\FormTesting\Index.cshtml" />
+    <Content Include="Views\Position\Create.cshtml" />
+    <Content Include="Views\Position\Delete.cshtml" />
+    <Content Include="Views\Position\Details.cshtml" />
+    <Content Include="Views\Position\Edit.cshtml" />
+    <Content Include="Views\Position\Index.cshtml" />
+    <Content Include="Views\TransactionType\Create.cshtml" />
+    <Content Include="Views\TransactionType\Delete.cshtml" />
+    <Content Include="Views\TransactionType\Details.cshtml" />
+    <Content Include="Views\TransactionType\Edit.cshtml" />
+    <Content Include="Views\TransactionType\Index.cshtml" />
+    <Content Include="Views\Transaction\Create.cshtml" />
+    <Content Include="Views\Transaction\Delete.cshtml" />
+    <Content Include="Views\Transaction\Edit.cshtml" />
+    <Content Include="Views\Transaction\Index.cshtml" />
+    <Content Include="Views\Transaction\MonthlyMeeting.cshtml" />
+    <Content Include="Views\Transaction\MonthlyMeeting1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\" />
+    <Folder Include="Content\UploadFiles\CustomerDocuments\13\Forum\" />
+    <Folder Include="Content\UploadFiles\CustomerDocuments\13\Gallery\album123 - Copy %282%29\" />
+    <Folder Include="Content\UploadFiles\CustomerDocuments\13\Gallery\album123 - Copy\" />
+    <Folder Include="Content\UploadFiles\CustomerDocuments\13\Gallery\album123\" />
+    <Folder Include="Content\UploadFiles\CustomerDocuments\13\New folder\" />
+    <Folder Include="Content\UploadFiles\CustomerDocuments\1\" />
+    <Folder Include="Content\UploadFiles\CustomerDocuments\2\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -332,6 +461,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFPeepalbot\EFPeepalbot.csproj">
+      <Project>{718745f6-e43e-45fe-83bd-615ef23167a8}</Project>
+      <Name>EFPeepalbot</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

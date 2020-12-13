@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Peepalbot.Models.DepartmentModel>
+
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Deparment</h3>
+        <div class="panel-tool"><a class="btn btn-info btn-xs" href="/Department/create">Create</a> </div>
+    </div>
+    <div class="panel-body">
+
+        <table class="table table table-condensed table-bordered table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a href="/Department/Edit/@item.Id" title ="Edit Record"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <a href="/Department/Detail/@item.Id" title="View Detail"><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="/Department/Delete/@item.Id" title="Delete"><i class="glyphicon glyphicon-trash"></i></a>
+                     </td>
+                </tr>
+            }
+
+        </table>
+
+
+    </div>
+</div>
+

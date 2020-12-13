@@ -1,3 +1,4 @@
+C:\Projects\Peepalbot\Peepalbot\obj\Debug\Peepalbot.csproj.CoreCompileInputs.cache
 C:\Projects\Peepalbot\Peepalbot\bin\Peepalbot.dll.config
 C:\Projects\Peepalbot\Peepalbot\bin\Peepalbot.dll
 C:\Projects\Peepalbot\Peepalbot\bin\Peepalbot.pdb
@@ -107,7 +108,12 @@ C:\Projects\Peepalbot\Peepalbot\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Projects\Peepalbot\Peepalbot\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Projects\Peepalbot\Peepalbot\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Projects\Peepalbot\Peepalbot\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Projects\Peepalbot\Peepalbot\obj\Debug\Peepalbot.csproj.CoreCompileInputs.cache
 C:\Projects\Peepalbot\Peepalbot\obj\Debug\Peepalbot.csproj.CopyComplete
 C:\Projects\Peepalbot\Peepalbot\obj\Debug\Peepalbot.dll
 C:\Projects\Peepalbot\Peepalbot\obj\Debug\Peepalbot.pdb
+C:\Projects\Peepalbot\Peepalbot\bin\aspnet-Peepalbot.mdf
+C:\Projects\Peepalbot\Peepalbot\bin\aspnet-Peepalbot_log.ldf
+C:\Projects\Peepalbot\Peepalbot\bin\EFPeepalbot.dll
+C:\Projects\Peepalbot\Peepalbot\bin\EFPeepalbot.pdb
+C:\Projects\Peepalbot\Peepalbot\bin\EFPeepalbot.dll.config
+C:\Projects\Peepalbot\Peepalbot\obj\Debug\Peepalbot.csprojAssemblyReference.cache

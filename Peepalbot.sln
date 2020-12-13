@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peepalbot", "Peepalbot\Peepalbot.csproj", "{90EF1E65-296F-49B6-9228-5994C74CE915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFPeepalbot", "EFPeepalbot\EFPeepalbot.csproj", "{20FFE9C3-0B3C-4DF6-8704-7A767AA9EBF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFPeepalbot", "EFPeepalbot\EFPeepalbot.csproj", "{718745F6-E43E-45FE-83BD-615EF23167A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{90EF1E65-296F-49B6-9228-5994C74CE915}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90EF1E65-296F-49B6-9228-5994C74CE915}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90EF1E65-296F-49B6-9228-5994C74CE915}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20FFE9C3-0B3C-4DF6-8704-7A767AA9EBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20FFE9C3-0B3C-4DF6-8704-7A767AA9EBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20FFE9C3-0B3C-4DF6-8704-7A767AA9EBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20FFE9C3-0B3C-4DF6-8704-7A767AA9EBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{718745F6-E43E-45FE-83BD-615EF23167A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{718745F6-E43E-45FE-83BD-615EF23167A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{718745F6-E43E-45FE-83BD-615EF23167A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{718745F6-E43E-45FE-83BD-615EF23167A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,274 @@
+﻿@model Peepalbot.Models.FormTestingModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Form Testing List</h3>
+        <div class="panel-tool"> <a class="btn btn-info btn-sm" href="/FormTesting/Create">Create</a></div>
+    </div>
+    <div class="panel-body">
+
+        <form class="form-horizontal" action="/FormTesting/Create" method="post" @*autocomplete="off" target="_blank" novalidate hidden*@>
+
+            @*<legend>FormTesting</legend>*@     @*This helps to give caption to the related fields*@
+            @*<div class="form-horizontal">*@
+
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="Full Name">Full Name:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" name="Full Name" id="Full Name" autocomplete="on" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="userName">UserName:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" name="userName" id="userName" />
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="phone">Contact Number:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="tel" id="phone" name="phone" placeholder="123-454-1678" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                        @*<input type="submit" value="Submit">*@
+                        @*<mdall>Format: 123-145-1678</small><br><br>*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Gender:</label>
+                    <div class="col-sm-8">
+                        <input @*class="form-control"*@ type="radio" id="Male" name="Gender" value="Male" checked />
+                        <label for="Male">Male</label>
+                        <input @*class="form-control"*@ type="radio" id="Female" name="Gender" value="Female" />
+                        <label for="Female">Female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Status</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" name="status" id="status">
+                            <option value="1" selected>--Select--</option>
+                            <option value="2">Single</option>
+                            <option value="3">Married</option>
+                            <option value="4">Divorced</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">FavoriteCousine:</label><br />
+                    <div class="col-sm-8">
+                        <select class="form-control" name="Cousine" id="Cousine" multiple>
+                            <option value="0" selected="selected">--Select---</option>
+                            <option value="1">Newari Cousine</option>
+                            <option value="2">Italian Cousine</option>
+                            <option value="3">American Cousine</option>
+                            <option value="4">Indian Cousine</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="DOB">Date of Birth:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control-static" type="date" name="DOB" id="DOB" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for=" birthdaytime">Birthday(Date and Time):</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="datetime-local" name="birthdaytime" id=" birthdaytime" />
+                        @*<input type="submit" />
+                        <input type="reset" />*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="Dates">Date of Birth:</label><br />
+                    <div class="col-sm-8">
+                        <input class="form-control" list="Dates" name="Dates">
+                        <datalist id="Dates">
+                            <option value="01/23/1986">
+                            <option value="04/01/1986">
+                            <option value="10/23/1980">
+                            <option value="09/11/2001">
+                            <option value="05/10/1989">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="appt">Select a time:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="time" id="appt" name="appt">
+                        @*<input type="submit" value="Submit">*@
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="Passwd">Password:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="password" name="Password" placeholder="Enter Password" id="Passwd" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="Email">Email:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="email" name="EmailAddress" placeholder="Enter Email Address" />
+                        @*<input type="submit" name="submit" value="submit" />*@
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="Info">Description:</label>
+                    <div class="col-sm-8">
+                        <textarea rows="4" cols="50" name="Infomation" id="Info"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="ProfilePic">Profile Picture:</label>
+                    <div class="col-sm-8">
+                        <input @*class="form-control"*@ type="file" name="ProfileImage" id="ProfilePic" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="quantity">Select a Number between (0 -10):</label>
+                    <div class="col-sm-4">
+                        <input class="form-control-static" type="number" id="quantity" name="quantity" min="0" max="10">
+                        @*<input type="submit" value="Submit">*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="vol">Adjust the volume (between 0 and 50):</label>
+                    <div class="col-sm-8">
+                        <input type="range" id="vol" name="vol" min="0" max="50">
+                        @*<input type="submit" value="Submit">*@
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Hobbies:</label>
+                    <div class="col-sm-8">
+
+                        <label class="checkbox-inline">Swiming<input class="" type="checkbox" name="Hobby" value="1" checked /></label>
+                        <label class="checkbox-inline">Running<input class="" type="checkbox" name="Hobby" value="2" /></label>
+                        <label class="checkbox-inline">Driving<input class="" type="checkbox" name="Hobby" value="3" /></label>
+                        <label class="checkbox-inline">Programming<input class="" type="checkbox" name="Hobby" value="4" /></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="gSearch">Search google:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="search" name="GoogleSearch" id="gSearch" />
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+
+                @*extra things related to forms*@
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="favcolor">favorite color:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="color" id="favcolor" name="favcolor" value="#00FFBF">
+                        @*<input type="submit" value="submit" />
+                        <input type="reset" />*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default btn-success" />
+                        <a class="btn btn-sm btn-warning" href="/FormTesting/">Cancel</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h3>Table</h3>
+                <table>
+                    @*<caption>Details</caption>*@
+                    <tr>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>UserName</th>
+                        <th>Password</th>
+                        <th>Phone No</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr>
+                        <td>Suresh</td>
+                        <td>Maharjan</td>
+                        <td>sureshmaharjan.kaji@gmail.com</td>
+                        <td>Somnarchy</td>
+                        <td>Password</td>
+                        <td>3478731845</td>
+                        <td>6315 Haring Street</td>
+                    </tr>
+                    <tr>
+                        <td>Sujata</td>
+                        <td>Maharjan</td>
+                        <td>sujataluv@gmail.com</td>
+                        <td>Somkumari</td>
+                        <td>Password</td>
+                        <td>3478731845</td>
+                        <td>6430 Austin street</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class ="btn btn-default" href="/FormTesting/Create" target="_blank">FormTesting</a>
+    </div>
+    <div>
+        <a href="mailto:sureshmaharjan.kaji@gmail.com">Email:</a>
+    </div>
+</div>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+
+
+
+
+

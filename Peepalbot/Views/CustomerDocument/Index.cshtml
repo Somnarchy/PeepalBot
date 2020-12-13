@@ -1,0 +1,122 @@
+﻿@model Peepalbot.Models.CustomerDocumentModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="box box-primary ">
+    <div class="box-header">
+        <h3 class="box-title">CustomerDocument</h3>
+        <div class="pull-right box-tools"> <a class="btn btn-info btn-sm" href="/CustomerDocument/create">Create</a> </div>
+    </div>
+    <div class="box-body">
+
+        <table id="CustomerDocuments" class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    Customer
+                </th>
+                <th>
+                    DocumentContent
+                </th>
+                <th>
+                    Document Type
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.CustomerDocumentList)
+            {
+                <tr>
+                    <td>
+                        @(item.Customer.FirstName + " " + item.Customer.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DocumentContent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DocumentType.Name)
+                    </td>
+                    <td>
+                        <a class="btn btn-xs btn-warning" href="/CustomerDocument/Edit/@item.Id" title="Edit Record"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <button type="button" title="View Detail" class="btn btn-xs btn-info show-detail" data-url="/CustomerDocument/Details/@(item.Id)"><i class="glyphicon glyphicon-eye-open"></i></button>
+                        <button type="button" title="Delete Record" class="btn btn-xs btn-danger delete-row" data-url="/CustomerDocument/Delete/@(item.Id)"><i class="glyphicon glyphicon-remove"></i></button>
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="CustomerDocument-detail" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                <a type="button" class="btn btn-primary" href="/CustomerDocument/edit/">Edit</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".show-detail").click(function () {
+                //$(".show-detail").on("click", function () {
+                //$(document).on("click", ".show-detail", function () {
+                let $this = $(this);
+                let url = $this.attr("data-url");
+
+                $.ajax({
+                    method: "get",
+                    url: url,
+                    dataType: "json", //"json" or "html" or...
+                    success: function (response) {
+
+                        let text = `<div class="">
+                                              <dl class="dl-horizontal">
+                                                <dt>Name</dt>
+                                                <dd>${response.Data.Customer}</dd>
+
+                                                <dt>Description</dt>
+                                                 <dd>${response.Data.DocumentType}</dd>
+                                              </dl>
+                                        </div>`;
+
+                        $("#CustomerDocument-detail").modal();
+                        $('#CustomerDocument-detail').on('shown.bs.modal', function (event) {
+                            var modal = $(this)
+                            modal.find('.modal-title').text('CustomerDocument Detail');
+                            modal.find('.modal-body').html(text);
+
+                            //val, text, html::: differenct
+                        })
+                    },
+                    error: function () {
+                        alert('error')
+                    }
+                });
+
+
+            });
+        });
+
+
+
+    </script>
+}

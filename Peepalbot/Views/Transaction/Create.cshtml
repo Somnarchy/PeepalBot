@@ -1,0 +1,76 @@
+﻿@model Peepalbot.Models.TransactionModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h4 class="panel-title">Add New Transaction</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <hr />
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Customer</label>
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(m => m.Customer.Id, Model.CustomerList, "-- Select Customer --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Customer.Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Account Name</label>
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(m => m.Transaction.AccountId, Model.AccountList, "--Select Account--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Account.Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Transaction Type</label>
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(m => m.Transaction.TransactionTypeId, Model.TransactionTypeList, "--Select TransactionType--", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Transaction.TransactionTypeId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Transaction Amount</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Transaction.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Transaction, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Description</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Transaction.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Transaction.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Entry Type</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Transaction.EntryType, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Transaction.EntryType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-sm btn-success" />
+                        <a class="btn btn-sm btn-warning" href="/Transaction/">Cancel</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

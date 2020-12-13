@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "MonthlyMeeting";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<h2>MonthlyMeeting</h2>
+
+@using (Html.BeginForm("MonthlyMeeting", "Transaction", FormMethod.Post, new { enctype = "multipart/form-data", autocomplete = "off" }))
+{
+    <table>
+        <thead>
+            <tr>
+                <th>SNo.</th>
+                <th>Member</th>
+                <th>Installment Amount</th>
+                <th>Fee</th>
+                <th>Fee Category</th>
+                <th>Total Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Subin &nbsp; <input type="hidden" name="accountId[]" value="12345678345" /></td>
+                <td><input value="2500" /></td>
+                <td><input value="50" /></td>
+                <td><select><option>Late Fee</option><option>Absent Fee</option></select></td>
+                <td>Rs. 2550</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Surendra &nbsp; <input type="hidden" name="accountId[]" value="1234567345345890" /></td>
+                <td><input value="2500" /></td>
+                <td><input value="50" /></td>
+                <td><select><option>Late Fee</option><option>Absent Fee</option></select></td>
+                <td>Rs. 2550</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Rina &nbsp; <input type="hidden" name="accountId[]" value="123434567567890" /></td>
+                <td><input value="2500" name="amount[]" /></td>
+                <td><input value="50" /></td>
+                <td><select><option>Late Fee</option><option>Absent Fee</option></select></td>
+                <td>Rs. 2550</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ratna &nbsp; <input type="hidden" name="accountId[]" value="accountId" /></td>
+                <td><input value="2500" name="amoutn[]" /></td>
+                <td><input value="50" /></td>
+                <td><select><option>Late Fee</option><option>Absent Fee</option></select></td>
+                <td>Rs. 2550</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Suresh &nbsp; <input type="hidden" name="accountId[]" value="accountId" /></td>
+                <td><input value="2500" name="amoutn[]" /></td>
+                <td><input value="50" /></td>
+                <td><select><option>Late Fee</option><option>Absent Fee</option></select></td>
+                <td>Rs. 2550</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Sushan &nbsp; <input type="hidden" name="accountId[]" value="accountId" /></td>
+                <td><input value="2500" /></td>
+                <td><input value="50" /></td>
+                <td><select><option>Late Fee</option><option>Absent Fee</option></select></td>
+                <td>Rs. 2550</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Gopi &nbsp; <input type="hidden" name="accountId[]" value="accountId" /></td>
+                <td><input value="2500" /></td>
+                <td><input value="50" /></td>
+                <td><select><option>Late Fee</option><option>Absent Fee</option></select></td>
+                <td>Rs. 2550</td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="4" style="text-align:right;">&nbsp; <b>Total Amount</b></td>
+                <td>Rs. 12550</td>
+                <td>&nbsp;</td>
+            </tr>
+        </tfoot>
+    </table>
+    <input type="submit" />
+
+}

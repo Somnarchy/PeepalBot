@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Peepalbot.Models.FormTestingModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Index</h2>
+<input type="text" id="txt1" onkeyup="showHint(this.value)">
+<div id="txtHint"></div>
+<script>
+    function showHint(str) {
+        //var xhttp;
+        //if (str.length == 0) {
+        //    document.getElementById("txtHint").innerHTML = "";
+        //    return;
+        //}
+        //xhttp = new XMLHttpRequest();
+        //xhttp.onreadystatechange = function () {
+        //    if (this.readyState == 4 && this.status == 200) {
+        //        document.getElementById("txtHint").innerHTML = this.responseText;
+        //    }
+        //};
+        //xhttp.open("GET", "/formtesting/AjaxTest?kv=" + str, true);
+        //xhttp.send();
+        AjaxReq("GET", "/formtesting/AjaxTest?kv=" + str);
+    }
+
+    function AjaxReq(method, url,) {
+        var xhttp;
+        if (str.length == 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                return this.responseText;
+            } else {
+
+            }
+        };
+        xhttp.open(method, url, true);
+        xhttp.send();
+    }
+</script>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Information)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsMarried)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FavoriteCousine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Information)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMarried)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FavoriteCousine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

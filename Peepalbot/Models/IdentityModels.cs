@@ -21,7 +21,7 @@ namespace Peepalbot.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("peepalbot_dbEntities", throwIfV1Schema: false)
+            : base("PeepalbotEntity", throwIfV1Schema: false)
         {
         }
 
