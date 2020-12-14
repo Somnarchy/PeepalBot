@@ -36,8 +36,6 @@ namespace EFPeepalbot.Repository
         {
             _context.Entry(model).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
-            //_contextPositions.Attach(model);
-            //_context.SaveChanges();
         }
 
 
@@ -45,8 +43,6 @@ namespace EFPeepalbot.Repository
         {
             var data = GetDetails(id);
             _context.Positions.Remove(data);
-            // OR
-            //_context.Entry(data).State = EntityState.Deleted;
             _context.SaveChanges();
         }
     }

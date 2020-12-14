@@ -3,66 +3,72 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/Layout.cshtml";
+
+    
 }
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Edit CustomerDetails</h3>
+        <h3 class="panel-title">Edit Customer Details</h3>
     </div>
     <div class="panel-body">
 
-        @using (Html.BeginForm())
+        @using(Html.BeginForm())
         {
+
+
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.CustomerDetails.Id)
+                @*@Html.HiddenFor(m => m.CustomerDetails.Id)*@
+            <input type="hidden" name="Id" value="@Model.CustomerDetails.Id" />
 
-            <div class="form-group">
-                <label class="control-label col-md-2">First Name</label>
-                <div class="col-md-6">
-                    <input type="text" name="First Name" value="@Model.CustomerDetails.FirstName" placeholder="First Name" class="form-control" />
-                    @Html.ValidationMessageFor(model => model.CustomerDetails.FirstName, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">First Name</label>
+                    <div class="col-md-6">
+                        @*@Html.TextBoxFor(x=>x.CustomerDetails.FirstName, new { @class = "form-control" })*@
+                        <input type="text" name="FirstName" value="@Model.CustomerDetails.FirstName" placeholder="First Name" class="form-control" />
+                      
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="control-label col-md-2">Middle Name</label>
-                <div class="col-md-6">
-                    <input type="text" name="Middle Name" value="@Model.CustomerDetails.MiddleName" placeholder="Middle Name" class="form-control" />
-                    @Html.ValidationMessageFor(model => model.CustomerDetails.MiddleName, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Middle Name</label>
+                    <div class="col-md-6">
+                        <input type="text" name="MiddleName" value="@Model.CustomerDetails.MiddleName" placeholder="Middle Name" class="form-control" />
+                               @Html.ValidationMessageFor(model => model.CustomerDetails.MiddleName, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="control-label col-md-2">Last Name</label>
-                <div class="col-md-6">
-                    <input type="text" name="Last Name" value="@Model.CustomerDetails.LastName" placeholder="Last Name" class="form-control"/>
-                    @Html.ValidationMessageFor(model => model.CustomerDetails.LastName, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Last Name</label>
+                    <div class="col-md-6">
+                        <input type="text" name="LastName" value="@Model.CustomerDetails.LastName" placeholder="Last Name" class="form-control"/>
+                               @Html.ValidationMessageFor(model => model.CustomerDetails.LastName, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Street Address</label>
-                <div class="col-md-6">
-                    <input type="text" name="Street Address" value="@Model.CustomerDetails.Address1" placeholder="Enter street address" class="form-control">
-                    @Html.ValidationMessageFor(model => model.CustomerDetails.Address1, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Street Address</label>
+                    <div class="col-md-6">
+                        <input type="text" name="Street Address" value="@Model.CustomerDetails.Address1" placeholder="Enter street address" class="form-control">
+                               @Html.ValidationMessageFor(model => model.CustomerDetails.Address1, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="control-label col-md-2">Apartment/Suite No.</label>
-                <div class="col-md-6">
-                    <input type="text" name="Apt/Suite No." value="@Model.CustomerDetails.Address2" placeholder="Enter Apt or Suite No." class="form-control"/>
-                    @Html.ValidationMessageFor(model => model.CustomerDetails.Address2, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Apartment/Suite No.</label>
+                    <div class="col-md-6">
+                        <input type="text" name="Apt/Suite No." value="@Model.CustomerDetails.Address2" placeholder="Enter Apt or Suite No." class="form-control"/>
+                               @Html.ValidationMessageFor(model => model.CustomerDetails.Address2, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2">City</label>
                     <div class="col-md-6">
                         <input type="text" name="City" value="@Model.CustomerDetails.City" placeholder="Enter City Name" class="form-control" />
-                        @Html.ValidationMessageFor(model => model.CustomerDetails.City, "", new { @class = "text-danger" })
+                               @Html.ValidationMessageFor(model => model.CustomerDetails.City, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -70,7 +76,7 @@
                     <label class="control-label col-md-2">Zipcode</label>
                     <div class="col-md-6">
                         <input type="text" name="Zipcode" value="@Model.CustomerDetails.ZipCode" placeholder="Enter your Zipcode" class="form-control"/>
-                        @Html.ValidationMessageFor(model => model.CustomerDetails.ZipCode, "", new { @class = "text-danger" })
+                               @Html.ValidationMessageFor(model => model.CustomerDetails.ZipCode, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -78,9 +84,10 @@
                     <label class="control-label col-md-2">Phone</label>
                     <div class="col-md-6">
                         <input type="tel" name="Phone" value="@Model.CustomerDetails.Phone" placeholder="347-873-1845" class="form-control" />
-                        @Html.ValidationMessageFor(model => model.CustomerDetails.Phone, "", new { @class = "text-danger" })
+                               @Html.ValidationMessageFor(model => model.CustomerDetails.Phone, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Save" class="btn btn-sm btn-success" />
@@ -89,5 +96,5 @@
                 </div>
             </div>
         }
-    </div>
+     </div>
 </div>

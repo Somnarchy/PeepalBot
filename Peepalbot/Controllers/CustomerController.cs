@@ -111,12 +111,12 @@ namespace Peepalbot.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CustomerModel model, FormCollection collection)
+        public ActionResult Edit(Customer custmer, CustomerModel model, FormCollection collection)
         {
             try
-            {
+            {  
                 var oldAccount = _service.GetDetails(model.CustomerDetails.Id);
-
+               
                 //oldAccount.CustomerId = model.Account.CustomerId;
                 oldAccount.FirstName = model.CustomerDetails.FirstName;
                 oldAccount.Phone = model.CustomerDetails.Phone;
@@ -175,26 +175,6 @@ namespace Peepalbot.Controllers
             }
             return Json(responseMessage);
         }
-
-        //// POST: Customer/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    _service.Delete(id);
-
-        //    return RedirectToAction("Index");
-        //}
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        _service..Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
-
     }
 
 }

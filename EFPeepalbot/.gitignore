@@ -240,4 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-ConstantConnect.MVCClient/Views/Calendar/CalendarIndex.cshtml
+

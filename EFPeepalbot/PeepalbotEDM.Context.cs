@@ -18,6 +18,7 @@ namespace EFPeepalbot
         public PeepalbotEntities()
             : base("name=PeepalbotEntities")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
