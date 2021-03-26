@@ -26,3 +26,17 @@ C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CoreCompileI
 C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CopyComplete
 C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.dll
 C:\Projects\PeopleBotTrust\EFPeepalbot\obj\Debug\EFPeepalbot.pdb
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\aspnet-Peepalbot.mdf
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\aspnet-Peepalbot_log.ldf
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\EFPeepalbot.dll.config
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\EFPeepalbot.dll
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\EFPeepalbot.pdb
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\EntityFramework.dll
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\EntityFramework.SqlServer.dll
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\EntityFramework.xml
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\bin\Debug\EntityFramework.SqlServer.xml
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CoreCompileInputs.cache
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\obj\Debug\EFPeepalbot.csproj.CopyComplete
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\obj\Debug\EFPeepalbot.dll
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\obj\Debug\EFPeepalbot.pdb
+D:\Cenero\Projects\PeepalBot\EFPeepalbot\obj\Debug\EFPeepalbot.csprojAssemblyReference.cache

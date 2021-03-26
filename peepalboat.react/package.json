@@ -1,0 +1,32 @@
+{
+  "name": "peepalboat.react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jquery": "^3.5.5",
+    "@types/jqueryui": "^1.12.15",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0",
+    "jquery-ui-pack": "^1.12.3",
+    "jszip": "^2.5.0",
+    "pqgrid": "^7.5.0",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "0.9.5"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}

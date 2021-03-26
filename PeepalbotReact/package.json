@@ -1,0 +1,27 @@
+{
+  "name": "Peepalbot.React",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rsuite": "^4.9.3",
+    "webpack": "^5.25.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-manifest-plugin": "^3.1.0"
+  },
+  "scripts": {
+    "build": "webpack --config=Content/config/webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
