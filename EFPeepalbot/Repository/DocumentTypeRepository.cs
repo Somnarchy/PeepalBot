@@ -36,8 +36,7 @@ namespace EFPeepalbot.Repository
         {
             _context.Entry(model).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
-            //_context.DocumentTypes.Attach(model);
-            //_context.SaveChanges();
+           
         }
 
         public void Delete(int id)

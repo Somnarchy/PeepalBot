@@ -26,7 +26,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">First Name</label>
                 <div class="col-md-8">
-                    <input type="text" name="First Name" value="" placeholder="First Name" class="form-control" data_val="true" data_rule_required="true" />
+                    @Html.TextBoxFor(m=>m.CustomerDetails.FirstName, new { @placeholder = "Enter First Name", @class ="form-control"})
                     @Html.ValidationMessageFor(model => model.CustomerDetails.FirstName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">Middle Name</label>
                 <div class="col-md-8">
-                    <input type="text" name="LastName" value="" placeholder="Middle Name" class="form-control" />
+                    <input type="text" name="CustomerDetails.MiddleName" value="" placeholder="Middle Name" class="form-control" />
                     @Html.ValidationMessageFor(model => model.CustomerDetails.MiddleName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">Last Name</label>
                 <div class="col-md-8">
-                    <input type="text" name="LastName" value="" placeholder="last Name" class="form-control" , data_val="true" , data_rule_required="true" />
+                    <input type="text" name="CustomerDetails.LastName" value="" placeholder="last Name" class="form-control" , data_val="true" , data_rule_required="true" />
                     @Html.ValidationMessageFor(model => model.CustomerDetails.LastName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">Description</label>
                 <div class="col-md-8">
-                    <input type="text" name="Description" value="" class="form-control" placeholder="Decription on Customer" />
+                    <textarea name="CustomerDetails.Description" rows="3" cols="5" class="form-control" placeholder="Decription on Customer"></textarea>
                     @Html.ValidationMessageFor(model => model.CustomerDetails.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -58,7 +58,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">Street Address</label>
                 <div class="col-md-8">
-                    <input type="text" name="Address" value="" class="form-control" placeholder="Street Name" />
+                    <input type="text" name="CustomerDetails.Address1" value="" class="form-control" placeholder="Street Name" />
                     @Html.ValidationMessageFor(model => model.CustomerDetails.Address1, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -66,7 +66,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">Apt/Suite No</label>
                 <div class="col-md-8">
-                    <input type="text" name="Address" value="" class="form-control" placeholder="Apt or Floor No." />
+                    <input type="text" name="CustomerDetails.Address2" value="" class="form-control" placeholder="Apt or Floor No." />
                     @Html.ValidationMessageFor(model => model.CustomerDetails.Address2, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -74,7 +74,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">City</label>
                 <div class="col-md-8">
-                    <input type="text" name="City" value="" class="form-control" placeholder=" City Name" />
+                    <input type="text" name="CustomerDetails.City" value="" class="form-control" placeholder=" City Name" />
                     @Html.ValidationMessageFor(model => model.CustomerDetails.City, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -82,7 +82,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">ZipCode</label>
                 <div class="col-md-8">
-                    <input type="text" name="ZipCode" value="" class="form-control" placeholder ="ZipCode" />
+                    <input type="text" name="CustomerDetails.ZipCode" value="" class="form-control" placeholder ="ZipCode" />
                     @Html.ValidationMessageFor(model => model.CustomerDetails.ZipCode, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -91,7 +91,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4">Phone Number</label>
                 <div class="col-md-8">
-                    <input type="text" name="Phone" value="" class="form-control" placeholder ="Phone Number" />
+                    <input type="text" name="CustomerDetails.Phone" value="" class="form-control" placeholder ="Phone Number" />
                     @Html.ValidationMessageFor(model => model.CustomerDetails.Phone, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -100,7 +100,9 @@
                 <label class="control-label col-md-4">Customer's Status</label>
                 <div class="col-md-8">
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.CustomerDetails.Status)
+                        <input type="checkbox" name="CustomerDetails.Status" value="true" checked />
+                        <input type="hidden" name="CustomerDetails.Status" value="false" />
+                        
                         @Html.ValidationMessageFor(model => model.CustomerDetails.Status, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -127,7 +129,7 @@
                     <div class="form-group">
                         <label for="AccountName" class="control-label col-md-4">Account Number</label>
                         <div class="col-md-8">
-                            <input type="text" name="AccountNumber" value="" placeholder="Account Number" class="form-control" disabled="disabled" />
+                            <input type="text" name="AccountDetails.Name" placeholder="Account Number" class="form-control" disabled="disabled" />
                             @Html.ValidationMessageFor(model => model.AccountDetails.Name, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -136,7 +138,12 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-6">
                         <input type="submit" value="Save" class="btn btn-sm btn-success" />
+                        <button type="submit">Save</button>
+
+                        <button type="reset">Reset</button>
                         <a href="/Customer/" class="btn btn-sm btn-warning">Cancel</a>
+
+
                     </div>
                 </div>
             }
