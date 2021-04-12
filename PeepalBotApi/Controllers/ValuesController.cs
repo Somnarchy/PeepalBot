@@ -13,7 +13,7 @@ namespace PeepalBotApi.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value111", "value222" };
         }
 
         // GET api/values/5

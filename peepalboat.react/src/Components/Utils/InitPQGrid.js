@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import pq from "pqgrid";
+import { saveAs } from "file-saver";
 import "jquery-ui-pack/jquery-ui.css";
 import "jquery-ui-pack/jquery-ui.structure.css";
 import "jquery-ui-pack/jquery-ui.theme.css";
@@ -8,6 +9,8 @@ import "jquery-ui-pack/jquery-ui.theme.css";
 import "pqgrid/pqgrid.min.css";
 import "pqgrid/pqgrid.ui.min.css";
 import "pqgrid/themes/bootstrap/pqgrid.css";
+
+import { config } from "../Services/httpService";
 //import "pqgrid/themes/steelblue/pqgrid.css";
 
 //import pq from "../../Plugins/pqgrid/pqgrid.dev";
@@ -19,8 +22,6 @@ import "pqgrid/themes/bootstrap/pqgrid.css";
 //import "../../plugins/pqgrid/localize/pq-localize-tr.js";
 export function GridDataModel({ pageurl, url }) {
   return {
-    stripeRows: true,
-    rowBorders: false,
     dataType: "JSON",
     location: "remote",
     method: "Get",
@@ -30,14 +31,15 @@ export function GridDataModel({ pageurl, url }) {
         url: url,
       };
     },
-    beforeSend: function () {
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader("Authorization", config.headers.Authorization);
       if (pageurl) {
         //window.history.pushState({ html: "", pageTitle: "" }, "", pageurl);
       }
     },
     getData: function (response, textStatus, jqXHR) {
-      if (response.status === 1) {
-        return { data: response.data };
+      if (response) {
+        return { data: response };
       } else {
         return { data: [] };
       }
@@ -47,9 +49,23 @@ export function GridDataModel({ pageurl, url }) {
 }
 
 class InitPQGrid extends Component {
+  defaultOptions = {
+    strLoading: "Loading",
+    strNoRows: "No Record(s)",
+    showTitle: false,
+    locale: "tr",
+    editable: false,
+    numberCell: { show: true, title: "#", resizable: false },
+    height: "600",
+    filterModel: { on: true, mode: "AND", header: true, type: "local" },
+    menuIcon: true,
+    menuUI: { tabs: ["hideCols"] },
+    collapsible: { on: false, collapsed: false, toggle: true },
+  };
   componentDidMount() {
-    this.options = this.props.options;
-    pq.grid(this.refs.grid, this.options);
+    this.options = { ...this.props.options, ...this.defaultOptions };
+    this.grid = pq.grid(this.refs.grid, this.options);
+    this.grid.parentMethods = this.props.parentMethods;
   }
   componentDidUpdate(prevProps) {
     /*var src = this.props.options, dest = this.options;
@@ -61,6 +77,23 @@ class InitPQGrid extends Component {
   }
   render() {
     return <div ref="grid"></div>;
+  }
+
+  export(fileName) {
+    var blob = this.grid.exportData({
+      format: "xlsx",
+      zip: false,
+      nopqdata: true,
+      render: true,
+    });
+    if (typeof blob === "string") {
+      blob = new Blob([blob]);
+    }
+    blob = new Blob([blob], {
+      type:
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;",
+    });
+    saveAs(blob, fileName + ".xlsx");
   }
 }
 export default InitPQGrid;

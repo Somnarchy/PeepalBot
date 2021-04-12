@@ -152,6 +152,7 @@ export default class Member extends Component {
     // let DM = Object.assign({}, this.state.dataModel);
     // DM.data = getData();
     // this.setState({ dataModel: DM });
+    getData();
   }
 
   handleChange(event) {

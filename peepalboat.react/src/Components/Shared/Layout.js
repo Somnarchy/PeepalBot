@@ -3,7 +3,9 @@ import { Row, Col } from "react-bootstrap";
 import { Container } from "react-bootstrap/Container";
 import Header from "./Header";
 import SidebarMenu from "./SidebarMenu";
-import "../../Css/Adminlte.min.css";
+import "../../Css/adminlte.min.css";
+import "../../Css/plugin.css";
+
 import "@fortawesome/fontawesome-free/js/all.js";
 
 export default (props) => {

@@ -43,21 +43,47 @@ export default class SidebarMenu extends Component {
                 <a href="#" className="nav-link active">
                   <i className="nav-icon fas fa-tachometer-alt"></i>
                   <p>
+                    App Settings
+                    <i className="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul className="nav nav-treeview">
+                  <li className="nav-item">
+                    <Link to="/accounttype" className="nav-link active">
+                      <i className="far fa-circle nav-icon"></i>Account Type
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/transactiontype" className="nav-link">
+                      <i className="far fa-circle nav-icon"></i>Transaction Type
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/documenttype" className="nav-link">
+                      <i className="far fa-circle nav-icon"></i>Document Type
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item menu-open">
+                <a href="#" className="nav-link">
+                  <i className="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
                     User Mgmt
                     <i className="right fas fa-angle-left"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <Link to="/member" className="nav-link active">
-                      <i className="far fa-circle nav-icon"></i>Member
+                    <Link to="/customer" className="nav-link">
+                      <i className="far fa-circle nav-icon"></i>Customer
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="./index3.html" className="nav-link">
-                      <i className="far fa-circle nav-icon"></i>
-                      <p>Dashboard v3</p>
-                    </a>
+                    <Link to="/customercocument" className="nav-link">
+                      <i className="far fa-circle nav-icon"></i>Customer
+                      Document
+                    </Link>
                   </li>
                 </ul>
               </li>

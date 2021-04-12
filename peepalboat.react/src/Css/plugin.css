@@ -1,0 +1,109 @@
+/**************** pqgrid- ****************/
+.ui-button-danger {
+  background-color: #dd4b39;
+  border-color: #d73925;
+}
+
+.ui-button-warning {
+  background-color: #f39c12;
+  border-color: #e08e0b;
+}
+
+.ui-button-info {
+  background-color: #00c0ef;
+  border-color: #00acd6;
+}
+
+.ui-button-info {
+  background-color: #00a65a;
+  border-color: #008d4c;
+}
+/** allows font awesome icons to be used within pqgrid **/
+.pq-grid .fa {
+  font-family: "Font Awesome 5 Free" !important;
+}
+div.pq-grid {
+  overflow: visible;
+}
+div.pq-theme * {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: inherit;
+  /*font-size: 14px !important;*/
+  /*font-weight: normal;*/
+}
+
+.pq-menu-icon {
+  background-color: #fff !important;
+}
+
+.pq-grid-header-table .ui-state-active .ui-icon,
+.pq-grid-header-table .ui-button:active .ui-icon {
+  background-image: url("/content/js/plugins/jquery-ui/css/images/ui-icons_ffffff_256x240.png") !important;
+  right: 2px;
+  position: absolute;
+}
+
+.pq-grid-header-table .pq-grid-title-row .pq-grid-number-cell,
+.pq-grid-header-table .pq-grid-row .pq-grid-number-cell,
+.pq-grid-header-table > .pq-grid-number-cell {
+  background: #000 !important;
+  color: #fff !important;
+}
+.pq-grid-header-table .pq-grid-header-search-row .pq-grid-number-cell,
+.pq-grid-header-table > .pq-grid-number-cell {
+  background: #fff !important;
+  color: #000 !important;
+}
+.pq-grid-row > .pq-grid-cell a {
+  color: #3c8dbc;
+}
+.pq-grid-row > .pq-grid-cell a:hover {
+  text-decoration: underline;
+  color: #3c8dbc;
+}
+/*.pq-grid-row > .pq-grid-col-leaf, .pq-grid-row > .pq-grid-col-leaf:hover, .pq-grid-title-row > .pq-grid-col-leaf, .pq-grid-title-row > .pq-grid-col-leaf:hover {
+    background: #000 !important;
+}
+
+.pq-grid-row > .pq-grid-col-leaf, .pq-grid-title-row > .pq-grid-col-leaf, .pq-grid-number-col {
+    color: #fff !important;
+}*/
+.pq-grid-row:not(.pq-grid-header-search-row) > .pq-grid-col,
+.pq-grid-row:not(.pq-grid-header-search-row) > .pq-grid-col:hover {
+  background: #000 !important;
+}
+
+.pq-grid-row:not(.pq-grid-header-search-row) > .pq-grid-col,
+.pq-grid-number-col {
+  color: #fff !important;
+}
+
+.pq-grid-cell a {
+  white-space: nowrap;
+}
+
+.grid-group .pq-group-title-cell {
+  width: 100% !important;
+  color: #fff !important;
+  background: #3c8dbc !important;
+  z-index: 1 !important;
+}
+
+.pq-grid-col > .pq-menu-icon {
+  opacity: 0.5;
+}
+
+/* fix to missing grouped column titles in dropdown menu */
+.pq-grid-cell label {
+  width: auto !important;
+}
+.pq-bg-0 {
+  background: #d7d7d7 !important;
+}
+
+/******************** React-Bootstrap ********************************/
+
+.modal-90w {
+  width: 90%;
+  max-width: none !important;
+}

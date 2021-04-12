@@ -31,8 +31,8 @@ namespace EFPeepalbot.Repository
         public int Save(AccountType model)
         {
             _context.AccountTypes.Add(model);
-            var insertedId = _context.SaveChanges();
-            return insertedId;
+            _context.SaveChanges();
+            return model.Id;
         }
 
         public void Update(AccountType model)
